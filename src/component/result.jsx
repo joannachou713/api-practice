@@ -10,7 +10,11 @@ export default class Result extends Component {
     }
 
     getResult() {
-        fetch(api).then(response => response.json())
+        fetch(api,{
+            method: 'GET',
+            headers: {
+                'mixed-content':'noupgrade',
+            }}).then(response => response.json())
             .then(myJson => {
                 console.log(myJson)
                 const newClebration = this.generateCelebrations(myJson)
