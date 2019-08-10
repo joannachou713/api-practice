@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <h3>購買</h3>
+    <form id="form1">
+        <input type="radio" name="gender" required value="男" id="male"><label for="male">男</label>
+        <input type="radio" name="gender" required value="女" id="female"><label for="female">女</label>
+        名字: <input type="text" id="pname">
+        書本名稱: <input type="text" id="bname">
+        數量: <input type="text" id="num">
+        <input type="submit" value="+ Add Item">
+    </form>
+
+    <p>您的訂單:<br>
+        性別: <span id="g"></span><br>
+        名字: <span id="n"></span><br>
+        書本名稱: <span id="b"></span><br>
+        數量: <span id="a"></span><br>
+    </p>
+
+    <script>
+        const form = document.querySelector('#form1')
+        const male = document.querySelector('#male')
+        const female = document.querySelector('#female')
+        const pname = document.querySelector('#pname')
+        const bname = document.querySelector('#bname')
+        const num = document.querySelector('#num')
+
+        const result_g = document.querySelector('#g')
+        const result_n = document.querySelector('#n')
+        const result_b = document.querySelector('#b')
+        const result_a = document.querySelector('#a')
+
+        function validate(e) {
+            e.preventDefault()
+            const gender = male.checked ? '男': '女';
+            const person = pname.value;
+            const book = bname.value;
+            const number = num.value;
+
+            result_g.innerHTML = gender;
+            result_n.innerHTML = person;
+            result_b.innerHTML = book;
+            result_a.innerHTML = number;
+            console.log(number)
+        }
+
+        form.addEventListener('submit', validate)
+    </script>
+</body>
+
+</html>
