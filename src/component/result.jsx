@@ -13,8 +13,7 @@ export default class Result extends Component {
         fetch(api, {
             method: 'GET',
             headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+                'mixed-content': 'noupgrade'
             },
             // body: JSON.stringify(data)
         })
