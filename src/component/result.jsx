@@ -10,7 +10,6 @@ export default class Result extends Component {
     }
 
     getResult() {
-        let error = false;
         fetch(api).then(response => response.json())
             .then(myJson => {
                 console.log(myJson)
