@@ -10,22 +10,27 @@ export default class Result extends Component {
     }
 
     getResult() {
-        fetch(api,{
+        fetch(api, {
             method: 'GET',
             headers: {
-                'mixed-content':'noupgrade',
-            }}).then(response => response.json())
-            .then(myJson => {
-                console.log(myJson)
-                const newClebration = this.generateCelebrations(myJson)
-                this.setState({
-                    isLoaded: true,
-                    calendars: myJson,
-                    celebrations: newClebration,
-                })
-            }).catch(function(err) {
-                console.log(err)
-            });
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            // body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(myJson => {
+            console.log(myJson)
+            const newClebration = this.generateCelebrations(myJson)
+            this.setState({
+                isLoaded: true,
+                calendars: myJson,
+                celebrations: newClebration,
+            })
+        })
+        .catch(function (err) {
+            console.log(err)
+        });
     }
 
     backtoSearch = () => {
@@ -67,10 +72,10 @@ export default class Result extends Component {
                     <input className='mb-3' required />
                     <button className='btn btn-outline-primary border rounded-pill' onClick={this.submitSearch}>search!</button>
                     <div className='mt-3 text-center text-secondary p-4'>
-                        Input format examples: <br/>
-                        today<br/>
-                        yesterday<br/>
-                        tomorrow<br/>
+                        Input format examples: <br />
+                        today<br />
+                        yesterday<br />
+                        tomorrow<br />
                         YYYY/MM/DD
                     </div>
                 </div>
