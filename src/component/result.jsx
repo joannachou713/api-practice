@@ -20,10 +20,6 @@ export default class Result extends Component {
                     calendars: myJson,
                     celebrations: newClebration,
                 })
-            }).catch(() => {
-                error = true
-                console.log(error)
-                alert('Please check your input format')
             });
     }
 
