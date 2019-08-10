@@ -20,6 +20,8 @@ export default class Result extends Component {
                     calendars: myJson,
                     celebrations: newClebration,
                 })
+            }).catch(function(err) {
+                console.log(err)
             });
     }
 
